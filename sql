@@ -32,3 +32,24 @@ eg: insert into intel values ('i7 10750h', 2020, 40000 );
 you can add multiple rows using this method
 alternate way to add more records (in any order of cloumn value)
 eg: insert into intel(price, model, year) values (21000,'i5 10300h',2020);
+---------------------------------------------
+to display/select records from a table
+select * from <tablename>
+eg : select * from intel;
+output:
++-----------+------+-------+
+| model     | year | price |
++-----------+------+-------+
+| i7 10750h | 2020 | 40000 |
+| i5 10300h | 2020 | 21000 |
++-----------+------+-------+
+as previous created one
+to diplay selected coloumn
+eg : select model,price from intel;
+output: 
++-----------+-------+
+| model     | price |
++-----------+-------+
+| i7 10750h | 40000 |
+| i5 10300h | 21000 |
++-----------+-------+
