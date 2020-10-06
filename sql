@@ -28,3 +28,14 @@ to display the structure of the table
 describe <tablename>
 eg : describe intel;
 ---------------------------------------------
+to add / insert records also called as rows 
+insert into <tablename> values (data, data2, data3);
+eg:
+insert into intel values ('i7 10750h', 2020, 40000 );
+you can add multiple rows using this method
+alternate way to add more records (in any order of cloumn value)
+eg: insert into intel(price, model, year) values (21000,'i5 10300h',2020);
+
+
+
+
