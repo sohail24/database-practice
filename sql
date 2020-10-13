@@ -63,4 +63,28 @@ output:
 | i5 10300h | 21000 |
 +-----------+-------+
 ---------------------------------------------
+creating 2 tables with primary key and foreign key
+note (quick reminder) :
+    primary key = a table can have only one primary key(can have multiple field/column but have to give constraints syntax,) and cannot have null value
+                  and must be unique
+                  eg:CREATE TABLE Persons (
+                    ID int NOT NULL,
+                    LastName varchar(255) NOT NULL,
+                    FirstName varchar(255),
+                    Age int,
+                    CONSTRAINT PK_Person PRIMARY KEY (ID,LastName)
+                    );
+    foreign key = an attribute which is primary key of another table which is used to link two table, and also add constraints
+                eg:CREATE TABLE Orders (
+                    OrderID int NOT NULL,
+                    OrderNumber int NOT NULL,
+                    PersonID int,
+                    PRIMARY KEY (OrderID),
+                    CONSTRAINT PK_PersonOrder FOREIGN KEY (PersonID)
+                    REFERENCES Persons(PersonID)
+                    );
+                    
+  
+                  
+                  
 
