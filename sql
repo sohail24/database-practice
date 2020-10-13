@@ -3,6 +3,15 @@ I have installed it in c:\xampp\mysql
 go to c:\xampp\mysql\bin 
 now launch mysql.exe -u root (in the cmd if u wish to do the command in cmd)
 
+
+---------------------------------------------
+note: SQL (s-e-q-u-e-l or S-Q-L Call It WhatEVER u like ;) )
+types : 
+DDL (data defintion language) - Create, Alter, Drop, Truncate, Comment, Rename
+DML (data manipulation language) - Select, Insert, Update, Delete, merge, call, explain plain, lock table
+DCL (data control language) - grant, revoke
+TCL (transcaction control language) - Commit, rollback, set transcation, savepoint
+---------------------------------------------
 commands
 ---------------------------------------------
 show databases;
@@ -53,3 +62,5 @@ output:
 | i7 10750h | 40000 |
 | i5 10300h | 21000 |
 +-----------+-------+
+---------------------------------------------
+
