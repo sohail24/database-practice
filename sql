@@ -83,8 +83,19 @@ note (quick reminder) :
                     CONSTRAINT PK_PersonOrder FOREIGN KEY (PersonID)
                     REFERENCES Persons(PersonID)
                     );
-                    
-  
-                  
-                  
-
+    
+   create table engine(
+    chasisno int(10),
+    manufacturername varchar(20),
+    engineyear varchar(10),
+    primary key chasisno
+   );
+   
+   create table bike(
+    modelno int(20),
+    year int(4),
+    price int(10),
+    chasis int(10),
+    primary key (modelno),
+    foreign key (chasis) references engine(chasisno)
+   );
