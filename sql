@@ -99,3 +99,4 @@ note (quick reminder) :
     primary key (modelno),
     foreign key (chasis) references engine(chasisno)
    );
+--------------------------------------------------
