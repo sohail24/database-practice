@@ -1,0 +1,94 @@
+mongodb CRUD operations
+
+//shows list of databases
+show dbs			
+//it bascially creates database if not presents and switches to it from the previous 
+use collegePractice
+// database is called as database only and tables are called collections and records are called as document
+//note: when a database doesnt have atleast one collection it will not be shown in the list of database using < "show database" >
+//show collections will show the no. of collections/tables inside document/database
+show collections 	
+//CRUD operation - Create, Read, Update, Delete
+
+//CREATE
+//to create a database explicitly db.createDatabase();
+//or best way is to use < "databasename">
+//to create a collection db.createCollection("< 'name of the collection' >")
+//basically better way is to insert and and implicitly create collection if it is not there
+//different way to insert data to a collection
+insert, insertOne, insertMany etc..
+db.student.insert({"name":"sohail", class:"te comp 1"})
+//basically computer assigns and _id implicitly , but it doesnt show up the id while in creation
+db.student.insertOne({_id:2 , "name":"aakash", class:"te comp 1"});
+db.student.insertMany([{_id:2 , "name":"aakash", class:"te comp ss"},{_id:3, "name":"shahbaz", class:"te comp 2"}]);
+
+//READ
+db.tours.find({ price: {$lte: 500} });
+db.tours.find({ price: {$lt: 500}, rating: {$gte: 4.8} })		//adding 2 or more key value operation to filter the document	(Essentially AND operation)
+db.tours.find({ $or: [ {price:{$lt: 500}}, {rating: {$gte: 4.8}} ] })
+//find(); optional parameters include query and projection etc. 	projections in mongo db means displaying only certain key value from all the available key-value pairs
+db.tours.find({ $or: [ {price:{$lt: 500}}, {rating: {$gte: 4.8}} ] }, {name: 1})	
+// name:1 means display name key-value pair, but by default _id is also diplayed _id:0 means don't display it
+
+//UPDATE
+db.tours.updateOne({ name: "The Snow Explorer"}, { $set: {price: 597}})
+db.tours.updateMany({ price: {$gt: 500}, rating: {$gte: 4.8} }, { $set: { premium: true} })
+
+//DELETE
+db.tours.delete({ rating: 2.9 })
+db.tours.deleteMany({ rating: {$lt: 4.8} })
+db.tours.deleteMany({})		//to delete all documents
+
+///*****to create a user*****//
+1.db.createUser({
+	user:"brad",
+	pwd: "1234",
+	roles: ["readWrite", "dbAdmin"]
+	});
+
+2.db.createCollection('customers');
+3.show collections
+4.db.customers.insert({first_name:"john", last_name:"doe"});
+5.db.customeres.find();
+6.db.customers.insert([{first_name:"john", last_name:"doe"},{first_name:"scarlett", last_name:"johnson", gender:"female"}]);
+7.db.customers.find().pretty();
+8.db.customers.update({first_name:"jhon"},{first_name:"john", last_name:"doe", gender:"male"})
+9.db.customers.update({first_name:"jhon"},{$set:{gender:"male"}})	//sets whatever things are previously and adds gender to it
+10.db.customers.update({first_name:"scarlett"},{$set:{age:21}};
+11.db.customers.update({first_name:"scarlett"},{%inc:{age:3}});
+12.db.customers.update({fisrt_name:"scarlett"},{$unset:{age:1}});	//removes age from scarleet,, age:1 means select age, rest are set to 0;
+13.db.customers.update({first_name:"scarlett"} , {%rename:{"gender":"sex"}});		//to rename fields
+14.db.customers.remove({first_name:"scarlett"});		//will remove all names having scarlett
+15.db.customere.remove({first_name:"scarlett"}, {justOne:true});
+//to write query
+16.db.customers.find({first_name:"scarlett"});
+//and or gt lt gte lte etc..	different operators
+17.db.customers.find({age:{$lt:40}}).pretty();
+//to write embedded objects (objects within the objects) < : [{} , {} , {}] >  
+//to find the details of embedded objects example
+/*
+... some other key value pairs
+address: {	
+		permanent_address: {
+		"street": "19 wills st",
+		"city" :  "worchester",
+		"state" : "wisconsin"
+		},
+		resedential_address: {
+		"street": "24 orelans",
+		"city" :  "sprngfield",
+		"state" : "illinois"
+		}
+	}
+
+
+*/
+18.db.customers.find({"address.resedential_address.state"});
+//sort
+19.db.xyz.find().sort({age:1});				//age: 1 ascending order of age to sort the data
+20.db.customers.find({gender:"male"}).count();
+21.db.customers.find().limit(4);
+//to combine
+22.db.customers.find().limit(4).sort(age:1);
+//to iterate through each step
+23.db.customers.find().forEach(function(doc){print("customer name: "+doc.first_name)});
