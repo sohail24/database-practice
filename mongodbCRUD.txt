@@ -55,7 +55,7 @@ db.tours.deleteMany({})		//to delete all documents
 8.db.customers.update({first_name:"jhon"},{first_name:"john", last_name:"doe", gender:"male"})
 9.db.customers.update({first_name:"jhon"},{$set:{gender:"male"}})	//sets whatever things are previously and adds gender to it
 10.db.customers.update({first_name:"scarlett"},{$set:{age:21}};
-11.db.customers.update({first_name:"scarlett"},{%inc:{age:3}});
+11.db.customers.update({first_name:"scarlett"},{$inc:{age:3}});
 12.db.customers.update({fisrt_name:"scarlett"},{$unset:{age:1}});	//removes age from scarleet,, age:1 means select age, rest are set to 0;
 13.db.customers.update({first_name:"scarlett"} , {%rename:{"gender":"sex"}});		//to rename fields
 14.db.customers.remove({first_name:"scarlett"});		//will remove all names having scarlett
