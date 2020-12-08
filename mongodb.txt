@@ -1,0 +1,24 @@
+open terminal and type
+
+mongod			//this is for starting server
+
+mongo			//to open mongodb
+
+after opening mongodb, type the commands /->
+
+1.use <DataBaseName>		//create database and switch to that database
+2.db 				// to check in which database presently
+3.show dbs			//shows list of databases
+//here the database will not be shown if there is no document/collection
+in the database. i.e the it is empty
+4.db.student.insert()		//to add document to collection named student
+//note: database -> collection -> document (in NOSQL)
+//note: database -> tables -> records/rowa (in SQL)
+eg: db.student.insert({name:"sohail",rollno:1,address:"pune",class:"te2",dept:"comp"})
+5.db.student.find() 		// to show the documents in collection
+5b. db.student.find().pretty()	// the document is stored as in JSON(Java Script Object Notation) format
+6.db.student.insertMany([{add details},{add details}]) //to store multiple documents
+7.db.student.insert({_id:200, rollno:25, add:"'chicago"})	//here the id we have mentioned so implicit addition of id is not implemented
+//note: as in case of nosql any data of any size can be added but for the best practice it is that add relevant key and values according to the table/collections
+8.db.student.insert([{},{},{}])
+9.db.stud.insert({rollno:01, Full_name:{FName:"sohail", LName:"Ahmad"}}) //embedded document
