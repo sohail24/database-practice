@@ -22,3 +22,5 @@ eg: db.student.insert({name:"sohail",rollno:1,address:"pune",class:"te2",dept:"c
 //note: as in case of nosql any data of any size can be added but for the best practice it is that add relevant key and values according to the table/collections
 8.db.student.insert([{},{},{}])
 9.db.stud.insert({rollno:01, Full_name:{FName:"sohail", LName:"Ahmad"}}) //embedded document
+db.student.insert({rollno:1, name:{fname:"sohail", lname:"ahmad"}, address:[ { Ladd:{city:"pune",pincode:"411032"}, Padd:{city:"pune",pincode:"411032"} } ], college:"mescoe", percentage:80, department:"comp", grade:"O", subject:["DBMS","CN","SEPM","ISEE","TOC"], contact:9999999998, DOB:"24 aug 1999",});
+
