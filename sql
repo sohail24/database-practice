@@ -100,3 +100,11 @@ note (quick reminder) :
     foreign key (chasis) references engine(chasisno)
    );
 --------------------------------------------------
+important while doing connectivity using mysql connector
+
+to know current use ->
+SELECT USER();          or
+SELECT CURRENT_USER;
+to check on which port ur mysql serve is running
+SHOW GLOBAL VARIABLES LIKE 'PORT';          
+//generally port number fixed is 3306 for MySql
