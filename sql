@@ -108,3 +108,12 @@ SELECT CURRENT_USER;
 to check on which port ur mysql serve is running
 SHOW GLOBAL VARIABLES LIKE 'PORT';          
 //generally port number fixed is 3306 for MySql
+
+-------------------------------------------------------
+some useful commands to alter the column of the table
+
+alter table tablename 
+rename column oldname to newname;
+
+alter table tablename 
+modify columnname datatype
