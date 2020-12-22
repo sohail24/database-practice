@@ -117,3 +117,14 @@ rename column oldname to newname;
 
 alter table tablename 
 modify columnname datatype
+
+----------------------------------------
+to solve the access denied issue in mysql jdbc connection just add jar file explicitly (if not there)
+
+then added dependency in .iml file
+
+  <dependency>
+    <groupId>mysql</groupId>
+    <artifactId>mysql-connector-java</artifactId>
+    <version>8.0.22</version>
+  </dependency>
